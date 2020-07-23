@@ -1,0 +1,79 @@
+﻿@model IEnumerable<CadastroClientes.Models.Cliente>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Clientes</h1>
+
+<div class="col-md-2">
+    <p>
+        <a asp-controller="Cliente" asp-action="Cadastrar">Novo Cliente</a>
+    </p>
+</div>
+
+<div class="col-md-2">
+    <p>
+        <a asp-controller="Cliente" asp-action="Filtro">Filtrar Cliente</a>
+    </p>
+</div>
+
+
+
+
+
+<table class="table" border="1">
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Tipo</th>
+        <th>Documento</th>
+        <th>Data</th>
+        <th>Telefone</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <label>@item.cd_cliente</label>
+            </td>
+            <td>
+                <label>@item.nm_cliente</label>
+            </td>
+            <td>
+                <label>@item.tipo</label>
+            </td>
+            <td>
+                <label>@item.nr_documento</label>
+            </td>
+            <td>
+                <label>@item.dt_cadastro</label>
+            </td>
+            <td>
+                <label>@item.nr_telefone</label>
+            </td>
+            <td hidden>@item.IsDeleted</td>
+            <td>
+
+                <a asp-controller="Cliente"
+                   asp-action="Editar"
+                   asp-route-id="@item.cd_cliente">Editar</a>
+                <a asp-controller="Cliente"
+                   asp-action="Consultar"
+                   asp-route-id="@item.cd_cliente">Consultar</a>
+                <a asp-controller="Cliente"
+                   asp-action="Excluir"
+                   asp-route-id="@item.cd_cliente">Excluir</a>
+            </td>
+        </tr>
+    }
+</table>
+
+@if (@TempData["Mensagem"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <!-- Imprime para o usuário a mensagem -->
+        @TempData["Mensagem"]
+    </div>
+}

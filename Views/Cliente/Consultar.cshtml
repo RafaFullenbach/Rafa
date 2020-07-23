@@ -1,0 +1,39 @@
+﻿@model CadastroClientes.Models.Cliente
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Cliente - Consultar</h1>
+<div class="form-horizontal">
+    <hr />
+
+    <div class="form-group">
+        <label asp-for="nm_cliente"></label>
+        <span class="form-control col-md-4">@Model.nm_cliente</span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="tipo"></label>
+        <span class="form-control col-md-4">@Model.tipo</span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="nr_documento"></label>
+        <span class="form-control col-md-4">@Model.nr_documento</span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="dt_cadastro"></label>
+        <span class="form-control col-md-4">@Model.dt_cadastro</span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="nr_telefone"></label>
+        <span class="form-control col-md-4">@Model.nr_telefone</span>
+    </div>
+
+    <hr />
+</div>
+<div>
+    <a asp-controller="Cliente" asp-action="Index">Voltar</a>
+</div>

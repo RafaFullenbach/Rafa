@@ -1,0 +1,68 @@
+﻿@model CadastroClientes.Models.Cliente
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Cliente - Editar</h1>
+
+<form asp-action="Editar" asp-controller="Cliente" method="post">
+
+    <input type="hidden" asp-for="cd_cliente" />
+    
+    <div class="form-horizontal">
+        <hr />
+
+        <div class="form-group">
+            <label asp-for="nm_cliente" class="custom-control-label"></label>
+            <input asp-for="nm_cliente" class="form-control col-md-4" />
+            <span asp-validation-for="nm_cliente" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="tipo" class="custom-control-label"></label><br />
+            <select asp-for="tipo" class="form-control col-md-4" id="selecao">
+                <option value="PF">Pessoa física</option>
+                <option value="PJ">Pessoa jurídica</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="nr_documento" class="custom-control-label"></label>
+            <input asp-for="nr_documento" class="form-control col-md-4" id="campo"/>
+            <span asp-validation-for="nr_documento" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="nr_telefone" class="custom-control-label"></label>
+            <input asp-for="nr_telefone" class="form-control col-md-4" id="phone"/>
+            <span asp-validation-for="nr_telefone" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="reset" value="Limpar" class="btn btn-default" />
+                <!-- HTML Simple para envio dos dados do formulário -->
+                <input type="submit" value="Gravar Alteração" class="btn btn-default" />
+            </div>
+        </div>
+        <hr />
+    </div>
+</form>
+<div>
+    <a asp-controller="Cliente" asp-action="Index">Voltar</a>
+</div>
+
+<script>
+    $('#campo').mask('000.000.000-00', { reverse: true });
+    $('#phone').mask('(00) 00000-0000');
+
+    $("#selecao").on("change", (e) => {
+        if ($("#selecao").is(":checked")) {
+            $('#campo').mask('000.000.000-00', { reverse: true });
+        }
+        else {
+            $('#campo').mask('00.000.000/0000-00', { reverse: true });
+        }
+
+    });
+</script>
