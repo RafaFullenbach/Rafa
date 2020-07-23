@@ -62,5 +62,5 @@ NOPARALLEL;
 
 <h4>Autoria e Contribuições</h4>
 
-Contribuições : Fiap
-Autoria : Rafael Carvalho Füllenbach
+1. Contribuições : Fiap
+1. Autoria : Rafael Carvalho Füllenbach
