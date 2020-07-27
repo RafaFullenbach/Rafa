@@ -10,7 +10,7 @@ Esse projeto foi feito em Asp.Net.Core MVC, Entity Framework e Bootstrap.
 1. <b>SGBD:</b> SQL DEVELOPER;
 1. <b>Packages Nuget:</b> Oracle.EntityFrameworkCore, Oracle.ManagedDataAcess.Core;
 1. <b>appsettings.json:</b> Configurar de acordo com seus dados do banco;
-1. <b>Query para criação do banco:</b>
+1. <b>Script para criação do banco:</b>
 
 CREATE TABLE CLIENTES 
 (
